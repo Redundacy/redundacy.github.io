@@ -3,14 +3,82 @@
 <!--#include virtual="/quiz/common/head_info_pages.html"-->
 <body>
     <!--#include virtual="/quiz/common/header.html"-->
-    <form>
-        <label for="username">Username:</label>
-        <input name="username" type="text" />
+    <h1>Feedback Form</h1>
+    <form id="feedback">
+        <label for="feedarea">Leave feedback here! (limit 250 chars)</label>
+        <input id="feedarea" name="feedarea" type="textarea" rows="4" cols="50"/>
         <br />
-        <label for="password">Password (there's no actual passwords, just put anything in):</label>
-        <input name="password" type="password" />
+        <fieldset>
+            <legend>Rate your experience:</legend>
+            <label for="1s">1</label>
+            <input id="1s" name="stars" type="radio" checked="checked"/>
+            <label for="2s">2</label>
+            <input id="2s" name="stars" type="radio" />
+            <label for="3s">3</label>
+            <input id="3s" name="stars" type="radio" />
+            <label for="4s">4</label>
+            <input id="4s" name="stars" type="radio" />
+            <label for="5s">5</label>
+            <input id="5s" name="stars" type="radio" />
+        </fieldset>
         <br />
-        <input type="submit" />
+        <label for="email">enter your email:</label>
+        <input id="email" name="email" type="input"/>
+        <br> 
+        <input type="button" onclick="respond()" value = "Submit">
     </form>
 </body>
+
+<script>
+    function respond() {
+        var form = document.getElementById("feedback");
+        var feedarea = form.feedarea;
+        var stars = 1;
+        if(document.getElementById("1s").checked) {
+            stars = 1;
+        } else if(document.getElementById("2s").checked) {
+            stars = 2;
+        } else if(document.getElementById("3s").checked) {
+            stars = 3;
+        } else if(document.getElementById("4s").checked) {
+            stars = 4;
+        } else if(document.getElementById("5s").checked) {
+            stars = 5;
+        }
+        var email = form.email.value;
+        if(!emailValid(email)) {
+        } else {
+            alert("feedback size: " + countWords(feedarea.value) + 
+            "\nstar rating: " + stars + 
+            "\nvalid email");
+            document.getElementById("feedback").submit();
+        }
+    }
+
+    function emailValid(address)
+    {
+        var p = address.search(/.+@.+/);
+        if (p == 0)
+            return true;
+        else
+        {
+            alert("Error: Invalid e-mail address.");
+            return false;
+        }
+    }
+
+    function countWords(feedarea) {
+        var numWords = 0;
+        for (var i = 0; i < feedarea.length; i++) {
+            var currentCharacter = feedarea[i];
+    
+            // Check if the character is a space
+            if (currentCharacter == " ") {
+                numWords += 1;
+            }
+        }
+        numWords += 1;
+        return numWords;
+    }
+</script>
 </html>
