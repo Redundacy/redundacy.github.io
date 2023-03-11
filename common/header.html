@@ -26,9 +26,71 @@
         border: 5px groove orange;
         margin: 15px;
     }
+
+    /*****************************************************
+    styles for main menu, dropdown menus, and menu items;
+    two groups of links: main menu, and dropdown menus   */
+
+    /* for the always-visible main menu options */
+    .Links li {
+        float: left;
+        width: 170px;
+        border-right: 1px solid #FFF;
+        font-weight: bold;
+        font-size: .7em;
+        text-align: center;
+        list-style: none;
+    }
+    
+    .Links li:last-child {
+        border-right-width: 0;
+    }
+    
+    /* for all links for all menu options */
+    .Links li a, 
+    .Links li span 
+    {
+        display: block;
+        height: 25px;
+        line-height: 25px;
+        background-color: #044e80;
+        color: #FFF;
+        text-decoration: none;
+    }
+    
+    .Links li a:hover {
+        background-color: #5f93b3;
+        color: #FFF;
+    }
+    
+    /* for the dropdown menu options */
+    .Links div {
+        position: absolute;
+        background-color: #044880;
+        visibility: hidden;
+    }
+    
+    .Links div a {
+        display: block;
+        width: 167px;
+        margin-top: 2px;
+        padding-left: 3px;
+        background-color: #C5DCC9;
+        color: #044880;
+        text-align: left;
+    }
+
+    body.dark-theme {
+        background-color:rgb(0, 3, 68);
+        color: lightgrey;
+    }
+    body.dark-theme .alt-color {
+        background-color:rgb(63, 1, 86);
+        color: lightgrey;
+    }
 </style>
 
-<table class="header-table">
+<!--<table class="header-table">
     <tr>
         <th>Welcome to</th>
         <th>the</th>
@@ -42,6 +104,43 @@
     <tr>
         <td><a href="/quiz/pages/page3.html">more junk</a></td>
         <td><a href="/quiz/pages/page4.html">About</a></td>
-        <!--<td><a href="pages/page5.html">privacy policy</a></td>-->
+        <td><a href="pages/page5.html">privacy policy</a></td>
     </tr>
-</table>
+</table> -->
+
+<nav onmouseout="hide()">
+    <h2>The dundas zone</h2>
+    <ul class="Links">
+      <li><a href="/quiz/index.html" onmouseover="show('m1')">Home</a></li>
+      <li><a href="/quiz/pages/page1.html" onmouseover="show('m2')">feedback form</a></li>
+      <li>
+        <span onmouseover="show('m3')">formal projects (wip)</span> 
+        <div id="m3" onmouseover="show('m3')">
+          <a href="/quiz/pages/page2.html">Nurse's Escape</a>
+          <a href="/quiz/pages/page2.html">Pitivi</a>
+        </div>
+      </li>
+      <li>
+        <span onmouseover="show('m4')">games (also wip)</span> 
+        <div id="m4" onmouseover="show('m4')">
+          <a href="/quiz/pages/page3.html">Goblins Castle</a>
+          <a href="/quiz/pages/page3.html">Dead of Night</a>
+          <a href="/quiz/pages/page3.html">Unfinished Business</a>
+          <a href="/quiz/pages/page3.html">Rift Coliseum (coming soon!)</a>
+        </div>
+      </li>
+      <li>
+        <span onmouseover="show('m5')">About</span> 
+        <div id="m5" onmouseover="show('m5')">
+          <a href="/quiz/pages/page4.html">Resume</a>
+          <a href="/quiz/pages/page4.html">Contact</a>
+          <a href="/quiz/pages/page4.html">Links</a>
+        </div>
+      </li>
+      <li>
+        <a class="btn-toggle">Dark Mode</a>
+      </li>
+    </ul>
+  </nav>
+  <script src="/quiz/scripts/darkmode.js"></script>
+  <br><br>
