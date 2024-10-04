@@ -1,0 +1,118 @@
+h1 {
+    color: slateblue;
+}
+
+body {
+    background-color:burlywood;
+}
+
+.alt-color {
+    background-color:khaki;
+}
+
+.header-table {
+    border: 3px solid black;
+}
+
+.header-table th {
+    border: 1px solid black;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: lightblue;
+}
+
+.flex-container > div {
+    background-color: lightgray;
+    margin: 10px;
+    line-height: 75px;
+    font-size: 20px;
+    max-width: 50%;
+}
+
+.pad-marg-edit {
+    padding: 20px;
+    border: 5px groove orange;
+    margin: 15px;
+}
+
+/*****************************************************
+styles for main menu, dropdown menus, and menu items;
+two groups of links: main menu, and dropdown menus   */
+
+/* for the always-visible main menu options */
+.Links li {
+    float: left;
+    width: 170px;
+    border-right: 1px solid #FFF;
+    font-weight: bold;
+    font-size: .7em;
+    text-align: center;
+    list-style: none;
+}
+
+.Links li:last-child {
+    border-right-width: 0;
+}
+
+/* for all links for all menu options */
+.Links li a, 
+.Links li span 
+{
+    display: block;
+    height: 25px;
+    line-height: 25px;
+    background-color: #044e80;
+    color: #FFF;
+    text-decoration: none;
+}
+
+.Links li a:hover {
+    background-color: #5f93b3;
+    color: #FFF;
+}
+
+/* for the dropdown menu options */
+.Links div {
+    position: absolute;
+    background-color: #044880;
+    visibility: hidden;
+}
+
+.Links div a {
+    display: block;
+    width: 167px;
+    margin-top: 2px;
+    padding-left: 3px;
+    background-color: #C5DCC9;
+    color: #044880;
+    text-align: left;
+}
+
+body.dark-theme {
+    background-color:rgb(0, 3, 68);
+    color: lightgrey;
+}
+body.dark-theme .alt-color {
+    background-color:rgb(63, 1, 86);
+    color: lightgrey;
+}
+
+section {
+    background-color: rgb(179, 127, 50);
+}
+section > table {
+    border: 1px solid black;
+}
+section > table > th {
+    background-color: rgb(185, 150, 97);
+}
+section > table > tr {
+    width: 200px;
+}
+
+.tooltiptext > section {
+    background-color: transparent;
+}
